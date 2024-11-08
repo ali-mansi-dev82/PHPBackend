@@ -14,14 +14,16 @@ return function (App $app) {
         // CORS Pre-Flight OPTIONS Request Handler
         return $response;
     });
-
-    $app->get('/', function (Request $request, Response $response) {
-        $response->getBody()->write('Hello world!');
-        return $response;
+    $app->group('/swap-mart', function (Group $parentgroup) {
+        $parentgroup->get('/', function (Request $request, Response $response) {
+            $response->getBody()->write('Hello world!');
+            return $response;
+        });
+        $parentgroup->group('/users', function (Group $group) {
+            $group->get('/', ListUsersAction::class);
+            $group->get('/{id}', ViewUserAction::class);
+        });
     });
 
-    $app->group('/users', function (Group $group) {
-        $group->get('', ListUsersAction::class);
-        $group->get('/{id}', ViewUserAction::class);
-    });
+    
 };
