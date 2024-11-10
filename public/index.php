@@ -31,6 +31,8 @@ $dependencies($containerBuilder);
 $repositories = require __DIR__ . '/../app/repositories.php';
 $repositories($containerBuilder);
 
+$repositories = require __DIR__ . '/../app/database.php';
+
 // Build PHP-DI Container instance
 $container = $containerBuilder->build();
 

@@ -3,5 +3,8 @@
 /coverage/
 /vendor/
 /logs/*
+/public/.htaccess
+.htaccess
 !/logs/README.md
 .phpunit.result.cache
+.env

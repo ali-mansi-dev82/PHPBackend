@@ -9,6 +9,7 @@ deny from all
   # Redirect to the public folder
   RewriteEngine On
   # RewriteBase /
+  RewriteRule ^fateme/(.*)$ fateme/$1 [L]
   RewriteRule ^$ public/ [L]
   RewriteRule (.*) public/$1 [L]
 
